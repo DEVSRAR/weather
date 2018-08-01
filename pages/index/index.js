@@ -24,7 +24,8 @@ Page({
   data: {
     nowTemp: 10,
     nowWeather: "晴",
-    nowWeatherBgc: ""
+    nowWeatherBgc: "",
+    forecast: [1,2,3,4,5,6,7,8,9,0]
   },
 
   // 添加下拉刷新处理函数---执行获取当前天气
@@ -40,10 +41,9 @@ Page({
     this.getNowWeather();
   },  
 
-
   // 封装函数，获取当前天气
   getNowWeather(callback) {
-    
+
     // 发起网路请求，获取天气数据
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',

@@ -25,3 +25,48 @@ view .weather-bg {
   top: 0;
   z-index: -1;
 }
+/* 未来24小时天气文字样式 */
+.timetips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+.timetips-text {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.5;
+}
+.timetips-icon{
+  margin-right: 10rpx;
+  width: 36rpx;
+  height: 28rpx;
+}
+
+/* 构建视图样式 */
+.forecast-list {
+  display: flex;
+}
+
+.forecast-itme {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;   /* 不自动压缩 */ 
+  width: 120rpx;
+  align-items: center;  
+}
+.f-time {
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+.f-img {
+  margin-top: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.f-temp {
+  margin-top: 46rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+}

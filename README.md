@@ -16,3 +16,13 @@
       2） 将"点点点"显示出来，配置 backgroundTextStyle 为 dark
     -结束下拉刷新
       1） 当获取完当前数据后，执行结束刷新x.stopPullDownRefresh()
+
+# -wx:for 的使用
+    --默认数组的当前项的下标变量名默认为 index，
+    --数组当前项的变量名默认为 item
+    --必须设置  wx:key 的值
+    <view
+      wx:for="{{[1,2,3,4,5 ]}}"  
+      wx:key="item">   
+        {{ item }}
+    </view>

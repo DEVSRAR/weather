@@ -4,3 +4,27 @@
   <view class="weather">{{ nowWeather }}</view>
   <image class="weather-bg" src="{{ nowWeatherBgc }}" mode="scaleToFill"></image>
 </view>
+<view class='timetips'>
+  <image class="timetips-icon" src='/img/time-icon.png'></image>
+  <view class='timetips-text'>未来24小时天气预测</view>
+</view>
+
+<!-- 构建可以滑动的视图 -->
+<scroll-view scroll-x>
+
+  <view class='forecast-list'>
+  <!-- 容器,循环，让每一个里面都放三个子容器 -->
+    <view class="forecast-itme" wx:for="{{ forecast }}" wx:key="item">
+    
+      <!-- 时间 -->
+      <view class='f-time'> {{ item }}</view>
+
+      <!-- 图片 -->
+      <image class='f-img' src="/img/sunny-icon.png"></image>
+
+      <!-- 天气 -->
+      <view class='f-temp'> {{ item }}</view>
+
+    </view> 
+  </view>
+</scroll-view>
