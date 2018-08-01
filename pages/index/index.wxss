@@ -93,3 +93,28 @@ view .weather-bg {
   width: 13rpx;
   height: 24rpx;
 }
+/*  地理位置样式 */
+.location-box {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+.location-son {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.l-icon {
+  margin-right: 10rpx;
+  width: 21rpx;
+  height: 30rpx;
+}
+.l-word {
+  text-align: center;
+}

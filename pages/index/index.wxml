@@ -1,5 +1,14 @@
 <!--index.wxml-->
 <view class="weather-wrapper">
+<!-- 地理位置 -->
+  <view class='location-box'>
+    <view class='location-son'>
+      <image class='l-icon' src='/img/location-icon.png'></image>
+      <view class='l-city'>广州</view>
+    </view>
+    <view class='l-word'>点击获取当前位置</view>
+  </view>
+
   <view class="temp">{{ nowTemp }}°</view>
   <view class="weather">{{ nowWeather }}</view>
   <image class="weather-bg" src="{{ nowWeatherBgc }}" mode="scaleToFill"></image>
