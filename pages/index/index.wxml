@@ -17,13 +17,13 @@
     <view class="forecast-itme" wx:for="{{ forecast }}" wx:key="item">
     
       <!-- 时间 -->
-      <view class='f-time'> {{ item }}</view>
+      <view class='f-time'> {{ item.time }}</view>
 
       <!-- 图片 -->
-      <image class='f-img' src="/img/sunny-icon.png"></image>
+      <image class='f-img' src="{{ item.pic }}"></image>
 
       <!-- 天气 -->
-      <view class='f-temp'> {{ item }}</view>
+      <view class='f-temp'> {{ item.temp }}</view>
 
     </view> 
   </view>

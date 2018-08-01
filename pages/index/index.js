@@ -25,7 +25,7 @@ Page({
     nowTemp: 10,
     nowWeather: "晴",
     nowWeatherBgc: "",
-    forecast: [1,2,3,4,5,6,7,8,9,0]
+    forecast: []
   },
 
   // 添加下拉刷新处理函数---执行获取当前天气
@@ -69,7 +69,26 @@ Page({
         wx.setNavigationBarColor({
           frontColor: '#000000',
           backgroundColor: weatherColorMap[now.weather],
+        });
+
+
+        // 定义一个空数组，构造成需要的格式
+        let forecast =[];
+        // 获取当前时间
+        let nowHover = new Date().getHours();
+        for( let i = 0; i < 24; i += 3) {
+          forecast.push({
+            time: (i + nowHover) % 24 + '时',
+            pic: "/img/sunny-icon.png",
+            temp: '-12'
+          })
+        }
+        // 让当前时间为 现在 
+        forecast[0].time = '现在';
+        this.setData({
+          forecast: forecast
         })
+
       },
       // 获取完数据后执行的回调函数,如果有的话
       complete: () => {
