@@ -29,3 +29,7 @@
 
 # -flex 的布局
     --flex-grow: 1 
+
+# -新建list页面 
+    -- 添加点击事件  bindtap
+    -- 页面跳转 wx.navigateTo({  url: ' .../ ' })

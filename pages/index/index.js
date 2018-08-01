@@ -117,6 +117,15 @@ Page({
       todayTemp: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 今天`
     })
 
+  },
+  // 封装函数---点击事件处理函数---跳转到list页面
+  onTapDayWeather() {
+    console.log('123');
+    // 保留当前页面，跳转到应用内的某个页面
+    wx.navigateTo({
+      url: '/pages/list/list'
+
+    })
   }
 
 })
