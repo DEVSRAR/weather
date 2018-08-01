@@ -25,7 +25,7 @@ Page({
     nowTemp: 10,
     nowWeather: "晴",
     nowWeatherBgc: "",
-    forecast: []
+    future: []
   },
 
   // 添加下拉刷新处理函数---执行获取当前天气
@@ -54,11 +54,18 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: res => {
+
         let { data: resdata } = res;
         console.log(resdata);
+
         // 设置当前温度和天气
         let { result: { now } } = resdata;
         console.log(now.temp, now.weather);
+
+        // 获取未来24h的天气的数据
+        let forecastData = resdata.result.forecast;
+        console.log(forecastData);
+
         // 必须使用this.setData 更行data中的数据，并将中英文映射
         this.setData({
           nowTemp: now.temp,
@@ -71,22 +78,22 @@ Page({
           backgroundColor: weatherColorMap[now.weather],
         });
 
-
         // 定义一个空数组，构造成需要的格式
-        let forecast =[];
+        let future =[];
         // 获取当前时间
         let nowHover = new Date().getHours();
+
         for( let i = 0; i < 24; i += 3) {
-          forecast.push({
+          future.push({
             time: (i + nowHover) % 24 + '时',
-            pic: "/img/sunny-icon.png",
-            temp: '-12'
+            pic: "/img/" + forecastData[i/3].weather + "-icon.png",
+            temp: forecastData[i / 3].temp + '°'
           })
         }
         // 让当前时间为 现在 
-        forecast[0].time = '现在';
+        future[0].time = '现在';
         this.setData({
-          forecast: forecast
+          future: future
         })
 
       },

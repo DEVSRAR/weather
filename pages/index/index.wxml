@@ -14,7 +14,7 @@
 
   <view class='forecast-list'>
   <!-- 容器,循环，让每一个里面都放三个子容器 -->
-    <view class="forecast-itme" wx:for="{{ forecast }}" wx:key="item">
+    <view class="forecast-itme" wx:for="{{ future }}" wx:key="item">
     
       <!-- 时间 -->
       <view class='f-time'> {{ item.time }}</view>
