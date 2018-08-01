@@ -9,12 +9,22 @@ const weatherMap = {
   'lightrain': '小雨',
   'heavyrain': '大雨',
   'snow': '雪'
+};
+// 映射导航条颜色
+const weatherColorMap = {
+  'sunny': '#cbeefd',
+  'cloudy': '#deeef6',
+  'overcast': '#c6ced2',
+  'lightrain': '#bdd5e1',
+  'heavyrain': '#c5ccd0',
+  'snow': '#aae1fc'
 }
 
 Page({
   data: {
     nowTemp: 10,
-    nowWeather: "晴"
+    nowWeather: "晴",
+    nowWeatherBgc: ""
   },
 
   onLoad() {
@@ -36,7 +46,13 @@ Page({
         // 必须使用this.setData 更行data中的数据，并将中英文映射
         this.setData({
           nowTemp: now.temp,
-          nowWeather: weatherMap[now.weather]
+          nowWeather: weatherMap[now.weather],
+          nowWeatherBgc:'/img/' + now.weather + '-bg.png'
+        });
+        // 动态改变导航条的颜色
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: weatherColorMap[now.weather],
         })
       }
     })
