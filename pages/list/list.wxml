@@ -1,13 +1,13 @@
 <!--pages/list/list.wxml-->
-<view class='weekday' wx:for="{{ [1,2,3,4,5,6,7] }}" wx:key="item">
+<view class='weekday' wx:for="{{ weekdate }}" wx:key="item">
 <!-- 日期 -->
   <view class='w-dayBox'>
-    <view class='w-day'> 星期一 </view>
-    <view class='w-date'>2018-2-1</view>
+    <view class='w-day'> {{ item.wday }} </view>
+    <view class='w-date'>{{ item.wdate }}</view>
   
   </view>
 <!-- 区间温度 -->
-  <view class='w-temp'>2-7</view>
+  <view class='w-temp'>{{ item.wtemp }}</view>
 <!-- 图片 -->
-  <image class='w-icon' src='/img/sunny-icon.png'></image>
+  <image class='w-icon' src='{{ item.wpath}}'></image>
 </view>
