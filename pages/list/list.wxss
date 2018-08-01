@@ -1,1 +1,39 @@
 /* pages/list/list.wxss */
+/*  最外层组件设置 */
+.weekday {
+  display: flex;
+  align-items: center;
+  height: 150rpx;
+  margin: 0 40rpx;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.weekday:last-child {
+  border-bottom: none;
+  
+}
+/* 日期设置 */
+.w-day{
+  opacity: 0.8;
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+ .w-date{
+  opacity: 0.5;
+  font-size: 25rpx;
+  line-height: 35rpx;
+}
+/* 区间温度 */
+ .w-temp{
+  flex-grow: 1;
+  padding-right: 60rpx;
+  text-align: center;
+  opacity: 0.8;
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+
+/* 图片设置 */
+.w-icon {
+  width: 90rpx;
+  height: 90rpx;
+}
