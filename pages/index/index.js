@@ -20,6 +20,10 @@ const weatherColorMap = {
   'snow': '#aae1fc'
 }
 
+// 引入地理位置SDK核心类
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+var qqmapsdk;
+
 Page({
   data: {
     nowTemp: 10,
@@ -27,7 +31,9 @@ Page({
     nowWeatherBgc: "",
     future: [],
     todayText: '',
-    todayTemp: ''
+    todayTemp: '',
+    city: '北京市',
+    locationTipText: '点击获取当前位置'
   },
 
   // 添加下拉刷新处理函数---执行获取当前天气
@@ -41,6 +47,11 @@ Page({
   // 页面加载的时候---执行获取当前天气
   onLoad() {
     this.getNowWeather();
+
+    // 实例化API核心类
+    this.qqmapsdk = new QQMapWX({
+      key: '6Y6BZ-5HXW4-4A4UC-XBE64-M5ASJ-NSFVN'
+    });
   },  
 
   // 封装函数---获取当前天气
@@ -56,7 +67,7 @@ Page({
       },
       success: res => {
         let { data: resdata } = res;
-        console.log(resdata);
+        // console.log(resdata);
         this.setNow(resdata);
         this.setHoverWeather(resdata);
         this.setToday(resdata);
@@ -71,7 +82,7 @@ Page({
   setNow(resdata) {
     // 设置当前温度和天气
     let { result: { now } } = resdata;
-    console.log(now.temp, now.weather);
+    // console.log(now.temp, now.weather);
     // 必须使用this.setData 更行data中的数据，并将中英文映射
     this.setData({
       nowTemp: now.temp,
@@ -89,7 +100,7 @@ Page({
   setHoverWeather(resdata) {
     // 获取未来24h的天气的数据
     let forecastData = resdata.result.forecast;
-    console.log(forecastData);
+    // console.log(forecastData);
     // 定义一个空数组，构造成需要的格式
     let future = [];
     // 获取当前时间
@@ -129,15 +140,34 @@ Page({
   },
   // 封装函数---获取地理位置处理程序
   onTapLocation() {
+
     // 获取地理位置
     wx.getLocation({
       type: 'wgs84',
-      success: function (res) {
+      success: res => {
         // 纬度
         var latitude = res.latitude;
         // 经度
         var longitude = res.longitude;
-        console.log(latitude, longitude);
+
+        // 调用接口
+        this.qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: latitude,
+            longitude: longitude
+          },
+          // 调用接口有问题，没有设置白名单
+          success: res => {
+            
+          },
+          fail: res => {
+            // -----模拟数据：拿到对应的城市，替换掉原来的数据
+            this.setData({
+              city: '石家庄市',
+              locationTipText: ''
+            })
+          }
+        });
       }
     })
 

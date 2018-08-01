@@ -4,9 +4,9 @@
   <view class='location-box' bindtap='onTapLocation'>
     <view class='location-son'>
       <image class='l-icon' src='/img/location-icon.png'></image>
-      <view class='l-city'>广州</view>
+      <view class='l-city'>{{ city }}</view>
     </view>
-    <view class='l-word'>点击获取当前位置</view>
+    <view class='l-word'>{{ locationTipText }}</view>
   </view>
 
   <view class="temp">{{ nowTemp }}°</view>
