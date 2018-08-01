@@ -70,3 +70,26 @@ view .weather-bg {
   font-size: 40rpx;
   line-height: 56rpx;
 }
+/*  底部显示今天的天气样式 */
+.showNowWeather {
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  position: absolute;
+  bottom: 0;
+  right: 40rpx;
+  left: 40rpx;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: rgba(0,0,0,0.5);
+}
+.temp-text {
+  flex-grow: 1;
+  padding-right: 30rpx;
+  text-align: right;
+}
+.arrow-icon {
+  width: 13rpx;
+  height: 24rpx;
+}

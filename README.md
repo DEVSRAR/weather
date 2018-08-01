@@ -26,3 +26,6 @@
       wx:key="item">   
         {{ item }}
     </view>
+
+# -flex 的布局
+    --flex-grow: 1 

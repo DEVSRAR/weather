@@ -3,7 +3,14 @@
   <view class="temp">{{ nowTemp }}°</view>
   <view class="weather">{{ nowWeather }}</view>
   <image class="weather-bg" src="{{ nowWeatherBgc }}" mode="scaleToFill"></image>
+  <!-- 底部显示今天的天气 -->
+  <view class='showNowWeather'>
+    <view class='day-text'>{{ todayTemp }}</view>
+    <view class='temp-text'>{{ todayText }}</view>
+    <image class='arrow-icon' src='/img/arrow.png'></image>
+  </view>
 </view>
+<!-- 24h -->
 <view class='timetips'>
   <image class="timetips-icon" src='/img/time-icon.png'></image>
   <view class='timetips-text'>未来24小时天气预测</view>

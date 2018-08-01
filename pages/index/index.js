@@ -25,7 +25,9 @@ Page({
     nowTemp: 10,
     nowWeather: "晴",
     nowWeatherBgc: "",
-    future: []
+    future: [],
+    todayText: '',
+    todayTemp: ''
   },
 
   // 添加下拉刷新处理函数---执行获取当前天气
@@ -43,7 +45,6 @@ Page({
 
   // 封装函数---获取当前天气
   getNowWeather(callback) {
-
     // 发起网路请求，获取天气数据
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
@@ -58,6 +59,7 @@ Page({
         console.log(resdata);
         this.setNow(resdata);
         this.setHoverWeather(resdata);
+        this.setToday(resdata);
       },
       // 获取完数据后执行的回调函数,如果有的话
       complete: () => {
@@ -104,5 +106,17 @@ Page({
     this.setData({
       future: future
     })
+  },
+  // 封装函数---获取今天的区间温度，及今天的日期
+  setToday(resdata) {
+    // 获取数据
+    let today = resdata.result.today;
+    let date = new Date();
+    this.setData({
+      todayText: `${today.minTemp}° - ${today.maxTemp}°`,
+      todayTemp: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 今天`
+    })
+
   }
+
 })
