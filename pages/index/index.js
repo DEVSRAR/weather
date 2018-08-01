@@ -126,6 +126,21 @@ Page({
       url: '/pages/list/list'
 
     })
+  },
+  // 封装函数---获取地理位置处理程序
+  onTapLocation() {
+    // 获取地理位置
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        // 纬度
+        var latitude = res.latitude;
+        // 经度
+        var longitude = res.longitude;
+        console.log(latitude, longitude);
+      }
+    })
+
   }
 
 })

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="weather-wrapper">
 <!-- 地理位置 -->
-  <view class='location-box'>
+  <view class='location-box' bindtap='onTapLocation'>
     <view class='location-son'>
       <image class='l-icon' src='/img/location-icon.png'></image>
       <view class='l-city'>广州</view>
